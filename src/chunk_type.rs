@@ -11,35 +11,35 @@ pub struct ChunkType {
 }
 
 impl ChunkType {
-    fn bytes(&self) -> [u8; 4] {
+    pub fn bytes(&self) -> [u8; 4] {
         self.bytes
     }
 
-    fn is_critical(&self) -> bool {
+    pub fn is_critical(&self) -> bool {
         let first_byte: &u8 = &self.bytes[0];
 
         first_byte.is_ascii_uppercase()
     }
 
-    fn is_valid(&self) -> bool {
+    pub fn is_valid(&self) -> bool {
         let third_byte: &u8 = &self.bytes[2];
 
         third_byte.is_ascii_uppercase()
     }
 
-    fn is_public(&self) -> bool {
+    pub fn is_public(&self) -> bool {
         let second_byte: &u8 = &self.bytes[1];
 
         second_byte.is_ascii_uppercase()
     }
 
-    fn is_reserved_bit_valid(&self) -> bool {
+    pub fn is_reserved_bit_valid(&self) -> bool {
         let third_byte: &u8 = &self.bytes[2];
 
         third_byte.is_ascii_uppercase()
     }
 
-    fn is_safe_to_copy(&self) -> bool {
+    pub fn is_safe_to_copy(&self) -> bool {
         let fourth_byte: &u8 = &self.bytes[3];
 
         fourth_byte.is_ascii_lowercase()
@@ -165,7 +165,7 @@ mod tests {
     #[test]
     pub fn test_chunk_type_string() {
         let chunk = ChunkType::from_str("RuSt").unwrap();
-        // println!("{:?}", &chunk.bytes().to_string());
+
         assert_eq!(&chunk.to_string(), "RuSt");
     }
 
