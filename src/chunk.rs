@@ -5,6 +5,7 @@ use std::io::BufReader;
 use std::io::Read;
 use crc::{Crc, CRC_32_ISO_HDLC};
 
+#[derive(Debug, Clone)]
 pub struct Chunk {
     chunk_type: ChunkType,
     chunk_data: Vec<u8>,
