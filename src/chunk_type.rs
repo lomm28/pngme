@@ -65,7 +65,7 @@ impl FromStr for ChunkType {
 
         if !have_all_alphabetic {
             Err("string contains numeric values")?;
-        };  
+        };
 
         Ok(ChunkType{ bytes: bytes.try_into().unwrap() })
     }

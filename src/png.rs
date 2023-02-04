@@ -112,8 +112,7 @@ impl fmt::Display for Png {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         writeln!(f, "Png {{",)?;
         writeln!(f, "  Header: {:?}", Png::STANDARD_HEADER)?;
-        writeln!(f, "  Chunks: {:?}", self.chunks())?;
-        writeln!(f, "  Bytes: {:?}", self.as_bytes())?;
+        writeln!(f, "  Number of chunks: {:?}", self.chunks().len())?;
         writeln!(f, "}}",)?;
 
         Ok(())
