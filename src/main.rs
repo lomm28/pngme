@@ -6,7 +6,7 @@ mod png;
 
 use clap::Parser;
 use args::{Pngme, Commands};
-use commands::{encode, decode};
+use commands::{encode, decode, remove, print};
 
 pub type Error = Box<dyn std::error::Error>;
 pub type Result<T> = std::result::Result<T, Error>;
@@ -22,6 +22,12 @@ fn main() -> Result<()> {
         },
         Commands::Decode(name) => {
             decode(name)
+        },
+        Commands::Remove(name) => {
+            remove(name)
+        },
+        Commands::Print(name) => {
+            print(name)
         }
     }
 }

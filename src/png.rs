@@ -113,6 +113,7 @@ impl fmt::Display for Png {
         writeln!(f, "Png {{",)?;
         writeln!(f, "  Header: {:?}", Png::STANDARD_HEADER)?;
         writeln!(f, "  Number of chunks: {:?}", self.chunks().len())?;
+        // writeln!(f, "  Chunks: {:?}", self.chunks())?;
         writeln!(f, "}}",)?;
 
         Ok(())

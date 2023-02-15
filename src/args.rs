@@ -17,7 +17,11 @@ pub enum Commands {
     /// Encode message in a png file
     Encode(Encode),
     /// Decode message hidden in a png file
-    Decode(Decode),
+    Decode(DecodeRemove),
+    /// Remove a chunk from png file
+    Remove(DecodeRemove),
+    /// Print chunks of the png file
+    Print(Print),
 }
 
 #[derive(Debug, Args)]
@@ -36,8 +40,8 @@ pub struct Encode {
 }
 
 #[derive(Debug, Args)]
-pub struct Decode {
-    /// path to file to decode
+pub struct DecodeRemove {
+    /// path to file
     #[arg(required = true)]
     pub path: String,
 
@@ -46,4 +50,9 @@ pub struct Decode {
     pub chunk_type: String,
 }
 
-// TODO: add remove and print
+#[derive(Debug, Args)]
+pub struct Print {
+    /// path to file to remove
+    #[arg(required = true)]
+    pub path: String,
+}
